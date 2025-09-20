@@ -1,24 +1,26 @@
 package lexer
 
-import "unicode/utf8"
-
 type Lexer struct {
-	input        string
+	input        []rune
 	position     int
 	readPosition int
-	ch           byte
+	ch           rune
 }
 
 func New(code string) *Lexer {
-	return &Lexer{input: code}
+	l := &Lexer{
+		input: []rune(code),
+	}
+	l.ReadChar()
+	return l
 }
 
 func (l *Lexer) ReadChar() {
-	if l.readPosition >= utf8.RuneCountInString(l.input) {
+	if l.readPosition >= len(l.input) {
 		l.ch = 0
 	} else {
 		l.ch = l.input[l.readPosition]
 	}
 	l.position = l.readPosition
-	l.readPosition = l.readPosition + 1
+	l.readPosition += 1
 }
