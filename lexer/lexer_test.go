@@ -21,11 +21,10 @@ func TestNextToken(t *testing.T) {
 		{token.SEMICOLON, ";"},
 		{token.EOF, ""},
 	}
-	//
-	//l := New(input)
-	//
-	//for _, tt := range l {
-	//	cur := l.NextToken()
-	//	if(cur.)
-	//}
+
+	l := New(input)
+
+	for _, tt := range l.input {
+
+	}
 }

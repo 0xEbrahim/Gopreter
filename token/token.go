@@ -24,5 +24,9 @@ const (
 
 type Token struct {
 	Type    TokenType
-	Literal string
+	Literal []rune
+}
+
+func NewToken(Type TokenType, Literal []rune) Token {
+	return Token{Type: Type, Literal: Literal}
 }
